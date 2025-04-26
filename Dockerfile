@@ -29,4 +29,6 @@ RUN composer install --ignore-platform-reqs
 RUN chmod +x /app/docker-startup.sh
 
 # Start the container
+EXPOSE 8080
+
 ENTRYPOINT [ "/app/docker-startup.sh" ]
