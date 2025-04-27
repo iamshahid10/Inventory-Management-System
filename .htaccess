@@ -1,6 +1,11 @@
-DirectoryIndex index.php
+# Force HTTPS
+RewriteEngine On
 
-RewriteEngine On 
+# Redirect HTTP to HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# If you are using public as the entry point, ensure the following rules are in place
 RewriteRule ^$ public/index.php [L]
 RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
 
